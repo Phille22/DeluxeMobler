@@ -8,10 +8,11 @@ namespace DeluxeMobler.Controllers
 {
     public class HomeController : Controller
     {
+        public List<Models.Furniture> furniturelist = Models.List.CreateList();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(furniturelist);
         }
     }
 }
