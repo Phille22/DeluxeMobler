@@ -71,3 +71,8 @@ td {
 a {
     text-decoration: none;
 }
+
+.pic img {
+    width: 50%;
+    height: auto;
+}
