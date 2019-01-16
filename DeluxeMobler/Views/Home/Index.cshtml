@@ -6,7 +6,7 @@
 
 <div class="Head">
     <div id="Inlogg">
-        <p>Inloggad som: Phille</p>
+        <p>Inloggad som: @Model.UserInfo.Name</p>
         <a href="">Byt användare</a>
     </div>
     <h2>Deluxe Möbler!</h2>
@@ -27,7 +27,7 @@
 </div>
 <div class="objekt">
     <table>
-        @foreach (var furniture in Model)
+        @foreach (var furniture in Model.FurnitureList)
         {
             <tr>
                 <td>
