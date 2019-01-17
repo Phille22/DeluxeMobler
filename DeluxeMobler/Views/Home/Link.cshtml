@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Link";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="Head">
+    <div id="Inlogg">
+        <p>Inloggad som: @Model.UserInfo.Name</p>
+        <a href="~/Login/Login/">Byt användare</a>
+    </div>
+    <a href="">Visa varukorgen(nrofitems)</a>
+    <h2>Deluxe Möbler!</h2>
+    <ul>
+        <li><a href="~/Home/Index/">Populära produkter</a></li>
+        <li>
+            <div class="Dropdown">
+                <a href="">Kategorier</a>
+                <div class="Dropdown-content">
+                    <a href="">Bord</a>
+                    <a href="">Sängar</a>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+    @foreach (var furniture in Model.FurnitureList)
+    {
+        if (furniture.id == Model.id)
+        {
+            <p>@furniture.NumberOfViews</p>
+            <h3>@furniture.Name</h3>
+            <div class="pic">
+                <img src="@furniture.PictureURL" width="200" height="200" />
+            </div>
+        }
+    }
+    @if (Model.UserInfo.ViewList != null)
+    {
+        foreach (var view in Model.UserInfo.ViewList)
+        {
+         <p>@view.nr</p>    
+            }
+        }
+    }
+</div>
+<div class="buybutton">
+    <a href="">Lägg i varukorg</a>
+</div>

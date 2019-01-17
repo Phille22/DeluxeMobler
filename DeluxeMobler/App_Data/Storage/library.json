@@ -1,0 +1,26 @@
+[
+  {
+    "$type": "DeluxeMobler.Models.Table, DeluxeMobler",
+    "Name": "Sven",
+    "Length": 0,
+    "Height": 0,
+    "Price": 300,
+    "InStock": 0,
+    "NumberOfViews": 3,
+    "NumberOfTimesBought": 0,
+    "PictureURL": "/Content/Images/Sofa.svg",
+    "id": 1
+  },
+  {
+    "$type": "DeluxeMobler.Models.Bed, DeluxeMobler",
+    "Name": "Johanna",
+    "Length": 0,
+    "Height": 0,
+    "Price": 250,
+    "InStock": 0,
+    "NumberOfViews": 3,
+    "NumberOfTimesBought": 0,
+    "PictureURL": "\\Content\\Images\\Skrapan,_Open_House_Stockholm_2016,_bild_10.jpg",
+    "id": 2
+  }
+]

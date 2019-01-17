@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace DeluxeMobler.Models
 {
@@ -10,6 +11,8 @@ namespace DeluxeMobler.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public List<Viewed> ViewList { get; set; }
+
 
         public static List<UserInfo> UserList = GetUsers();
 
@@ -19,11 +22,38 @@ namespace DeluxeMobler.Models
             var selected = UserList.Where(x => x.Name == Name).FirstOrDefault();
             return selected;
         }
+
         public static UserInfo GetUserInfo(int id)
         {
             UserInfo userinfo;
-            userinfo = UserList.Where(x => x.Id == id).FirstOrDefault();
+            string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/user" + id + ".json");
+
+            if (System.IO.File.Exists(filepath))
+            {
+                var settings = new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.Objects
+                };
+                var json = System.IO.File.ReadAllText(filepath);
+                userinfo = JsonConvert.DeserializeObject<UserInfo>(json, settings);
+            }
+            else
+            {
+                userinfo = UserList.Where(x => x.Id == id).FirstOrDefault();
+            }
             return userinfo;
+        }
+
+        public static void SaveUserInfo(UserInfo user)
+        {
+            string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/user" + user.Id + ".json");
+            var settings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Objects,
+                Formatting = Formatting.Indented
+            };
+            string json = JsonConvert.SerializeObject(user, settings);
+            System.IO.File.WriteAllText(filepath, json);
         }
 
         public static List<UserInfo> GetUsers()
@@ -33,6 +63,11 @@ namespace DeluxeMobler.Models
             userList.Add(new UserInfo { Id = 2, Name = "Phille2", Password = "pwh2" });
             return userList;
     
+        }
+        public class Viewed
+        {
+            public int nr;
+            public int id;
         }
     }
 }

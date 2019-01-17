@@ -7,7 +7,7 @@
 <div class="Head">
     <div id="Inlogg">
         <p>Inloggad som: @Model.UserInfo.Name</p>
-        <a href="">Byt användare</a>
+        <a href="~/Login/Login/">Byt användare</a>
     </div>
     <h2>Deluxe Möbler!</h2>
     <ul>
@@ -16,14 +16,14 @@
             <div class="Dropdown">
                 <a href="">Kategorier</a>
                 <div class="Dropdown-content">
-                    <a href="">Kategori1</a>
-                    <a href="">Kategori2</a>
+                    <a href="">Bord</a>
+                    <a href="">Sängar</a>
                 </div>
             </div>
 
         </li>
     </ul>
-    <h3>KategoriNamn</h3>
+    <h3>Populära produkter</h3>
 </div>
 <div class="objekt">
     <table>
@@ -31,9 +31,19 @@
         {
             <tr>
                 <td>
-                    <a href="">
+                    @if (Model.UserInfo.ViewList != null)
+                    {
+                        foreach (var view in Model.UserInfo.ViewList)
+                        {
+                            if(view.id == furniture.id)
+                            {
+                                <p>@view.nr</p>
+                            }
+                        }
+                    }
+                    <a href="~/Home/Link/@furniture.id">
                         <div class="pic">
-                        <img src="@furniture.PictureURL" width="200" height="200" />
+                            <img src="@furniture.PictureURL" width="200" height="200" />
                         </div>
                         <div class="obj">@furniture.Name</div>
                         <div class="beskr">Pris: @furniture.Price Kr</div>
