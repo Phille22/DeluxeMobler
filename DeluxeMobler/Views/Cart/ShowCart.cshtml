@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Head">
+    <div id="Inlogg">
+        <p>Inloggad som: @Model.UserInfo.Name</p>
+        <a href="~/Login/Login/">Byt användare</a>
+    </div>
+</div>
+<a href="">Visa varukorgen()</a>
+<h2>Deluxe Möbler!</h2>
+<ul>
+    <li><a href="~/Home/Index/">Populära produkter</a></li>
+    <li>
+        <div class="Dropdown">
+            <a href="">Kategorier</a>
+            <div class="Dropdown-content">
+                <a href="">Bord</a>
+                <a href="">Sängar</a>
+            </div>
+        </div>
+    </li>
+</ul>
+@if (Model.UserInfo.CartList != null)
+{
+    int nr = 0;
+    int price = 0;
+    foreach (var cartitem in Model.UserInfo.CartList)
+    {
+        price = price + cartitem.price;
+        nr++;
+        <p>@nr @cartitem.name @cartitem.price</p>
+    }
+    <p>Total: @price</p>
+}
+
+

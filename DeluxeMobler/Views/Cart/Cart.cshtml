@@ -1,14 +1,16 @@
 ﻿
 @{
-    ViewBag.Title = "Link";
+    ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="Head">
     <div id="Inlogg">
         <p>Inloggad som: @Model.UserInfo.Name</p>
         <a href="~/Login/Login/">Byt användare</a>
     </div>
-    <a href="~/Cart/ShowCart/">Visa varukorgen(nrofitems)</a>
+    </div>
+    <a href="">Visa varukorgen(nrofitems)</a>
     <h2>Deluxe Möbler!</h2>
     <ul>
         <li><a href="~/Home/Index/">Populära produkter</a></li>
@@ -20,22 +22,13 @@
                     <a href="">Sängar</a>
                 </div>
             </div>
-
         </li>
     </ul>
-    @foreach (var furniture in Model.FurnitureList)
+@if(Model.UserInfo.CartList != null)
+{
+    foreach (var cartitem in Model.UserInfo.CartList)
     {
-        if (furniture.id == Model.id)
-        {
-            <p>@furniture.NumberOfViews</p>
-            <h3>@furniture.Name</h3>
-            <div class="pic">
-                <img src="@furniture.PictureURL" width="200" height="200" />
-            </div>
-            <div class="buybutton">
-                <a href="~/Cart/AddToCart/@furniture.id">Lägg i varukorg</a>
-            </div>
-        }
+        <p>@cartitem.name</p>
     }
-    }
-</div>
+}
+

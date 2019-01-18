@@ -12,6 +12,7 @@ namespace DeluxeMobler.Models
         public string Name { get; set; }
         public string Password { get; set; }
         public List<Viewed> ViewList { get; set; }
+        public List<Cart> CartList { get; set; }
 
 
         public static List<UserInfo> UserList = GetUsers();
@@ -68,6 +69,11 @@ namespace DeluxeMobler.Models
         {
             public int nr;
             public int id;
+        }
+        public class Cart
+        {
+            public string name;
+            public int price;
         }
     }
 }
