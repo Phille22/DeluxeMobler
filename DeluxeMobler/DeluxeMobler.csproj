@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Dining_table_for_two.jpg" />
     <Content Include="Content\Images\Skrapan,_Open_House_Stockholm_2016,_bild_10.jpg" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="Global.asax" />
@@ -125,6 +126,8 @@
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Cart\ShowCart.cshtml" />
+    <Content Include="Views\Home\Table.cshtml" />
+    <Content Include="Views\Home\Bed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Storage\" />

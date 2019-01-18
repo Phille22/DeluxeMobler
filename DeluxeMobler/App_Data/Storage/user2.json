@@ -1,26 +1,21 @@
 {
   "$type": "DeluxeMobler.Models.UserInfo, DeluxeMobler",
-  "Id": 1,
-  "Name": "Phille",
-  "Password": "pwh",
+  "Id": 2,
+  "Name": "Phille2",
+  "Password": "pwh2",
   "ViewList": [
     {
       "$type": "DeluxeMobler.Models.UserInfo+Viewed, DeluxeMobler",
-      "nr": 6,
+      "nr": 2,
       "id": 1
     },
     {
       "$type": "DeluxeMobler.Models.UserInfo+Viewed, DeluxeMobler",
-      "nr": 3,
+      "nr": 1,
       "id": 2
     }
   ],
   "CartList": [
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
     {
       "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
       "name": "Sven",

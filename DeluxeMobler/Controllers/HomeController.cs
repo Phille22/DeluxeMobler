@@ -57,5 +57,17 @@ namespace DeluxeMobler.Controllers
             ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, id);
             return View(VM);
         }
+        public ActionResult Table()
+        {
+            userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
+            ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 0);
+            return View(VM);
+        }
+        public ActionResult Bed()
+        {
+            userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
+            ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 0);
+            return View(VM);
+        }
     }
 }
