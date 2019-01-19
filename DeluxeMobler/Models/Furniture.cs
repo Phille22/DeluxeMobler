@@ -23,6 +23,7 @@ namespace DeluxeMobler.Models
 
         public static bool SaveData(List<Furniture> furniturelist)
         {
+            furniturelist.OrderBy(o => o.NumberOfViews);
             var settings = new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.Objects,

@@ -14,6 +14,7 @@ namespace DeluxeMobler.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            furniturelist.Sort((x, y) => string.Compare(y.NumberOfViews.ToString(), x.NumberOfViews.ToString()));
             if (Session["UserID"]is int)
             {
 
@@ -38,7 +39,7 @@ namespace DeluxeMobler.Controllers
 
         public ActionResult Link(int id)
         {
-            foreach(Furniture furniture in furniturelist)
+            foreach (Furniture furniture in furniturelist)
             {
                 if(furniture.id == id)
                 {
