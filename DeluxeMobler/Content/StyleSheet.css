@@ -72,7 +72,16 @@ a {
     text-decoration: none;
 }
 
-.pic img {
-    width: 50%;
-    height: auto;
+/*.pic img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}*/
+
+.imgdsc{
+    float:right;
+    font-size: 30px;
 }
+
+form{
+    text-align:center;

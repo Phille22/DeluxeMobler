@@ -81,15 +81,15 @@ namespace DeluxeMobler.Models
 
     public class Table : Furniture
     {
-        int NumberOfLegs { get; set; }
-        bool CanBeFold { get; set; }
-        string Shape { get; set; }
+        public int NumberOfLegs { get; set; }
+        public bool CanBeFold { get; set; }
+        public string Shape { get; set; }
     }
 
     public class Bed : Furniture
     {
-        int Softness { get; set; }
-        bool IsDouble { get; set; }
+        public int Softness { get; set; }
+        public bool IsDouble { get; set; }
 
     }
 

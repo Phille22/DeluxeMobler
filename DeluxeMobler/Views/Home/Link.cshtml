@@ -38,14 +38,29 @@
         if (furniture.id == Model.id)
         {
             <p>@furniture.NumberOfViews</p>
-            <h3>@furniture.Name</h3>
+            <h2>@furniture.Name</h2>
             <div class="pic">
-                <img src="@furniture.PictureURL" width="200" height="200" />
+                <img src="@furniture.PictureURL" width="400" height="400" />
+                <div class="imgdsc">
+                    <p>Längd: @furniture.Length</p>
+                    <p>Höjd: @furniture.Height</p>
+                    @if(furniture is DeluxeMobler.Models.Table)
+                    {
+                    <p>Antal Ben: @furniture.NumberOfLegs;</p>
+                    <p>Kan vikas:  @furniture.CanBeFold</p>
+                    <p>Form: @furniture.Shape</p>
+                    }
+                    @if(furniture is DeluxeMobler.Models.Bed)
+                    {
+                        <p>Mjukhet: @furniture.Softness</p>
+                        <p>Dubbelsäng: @furniture.IsDouble</p>
+                    }
+                </div>
             </div>
+            <p>@furniture.Price Kr</p>
             <div class="buybutton">
-                <a href="~/Cart/AddToCart/@furniture.id">Lägg i varukorg</a>
+                <h3><a href="~/Cart/AddToCart/@furniture.id">Lägg i varukorg</a></h3>
             </div>
         }
-    }
     }
 </div>

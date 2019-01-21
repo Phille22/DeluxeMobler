@@ -1,0 +1,19 @@
+{
+  "$type": "DeluxeMobler.Models.UserInfo, DeluxeMobler",
+  "Id": 2,
+  "Name": "Phille2",
+  "Password": "pwh2",
+  "ViewList": [
+    {
+      "$type": "DeluxeMobler.Models.UserInfo+Viewed, DeluxeMobler",
+      "nr": 0,
+      "id": 1
+    },
+    {
+      "$type": "DeluxeMobler.Models.UserInfo+Viewed, DeluxeMobler",
+      "nr": 1,
+      "id": 2
+    }
+  ],
+  "CartList": null
+}

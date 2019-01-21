@@ -38,5 +38,13 @@ namespace DeluxeMobler.Controllers
             ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 1);
             return View(VM);
         }
+        public ActionResult Buy()
+        {
+            userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
+            ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 0);
+            userinfo.CartList.Clear();
+            UserInfo.SaveUserInfo(userinfo);
+            return RedirectToAction("Index", "Home");
+        }
     } 
 }

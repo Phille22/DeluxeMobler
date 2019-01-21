@@ -6,60 +6,25 @@
   "ViewList": [
     {
       "$type": "DeluxeMobler.Models.UserInfo+Viewed, DeluxeMobler",
-      "nr": 25,
+      "nr": 32,
       "id": 1
     },
     {
       "$type": "DeluxeMobler.Models.UserInfo+Viewed, DeluxeMobler",
-      "nr": 26,
+      "nr": 64,
       "id": 2
     }
   ],
   "CartList": [
     {
       "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
+      "name": "Sven",
+      "price": 300
+    },
+    {
+      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
       "name": "Johanna",
       "price": 250
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
-    },
-    {
-      "$type": "DeluxeMobler.Models.UserInfo+Cart, DeluxeMobler",
-      "name": "Sven",
-      "price": 300
     }
   ]
 }

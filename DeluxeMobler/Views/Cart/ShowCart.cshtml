@@ -31,10 +31,15 @@
     {
         price = price + cartitem.price;
         nr++;
-        <p>@nr @cartitem.name @cartitem.price</p>
+        <p>Vara: @nr @cartitem.name @cartitem.price Kr</p>
     }
-    <p>Total: @price</p>
+    <h2>Totalt: @price Kr</h2>
 }
-<h3>Köp!</h3>
+<form method="post">
+    Namn: <input type="text" name="Name" />
+    Kortnummer <input type="number" name="Cardnumber" />
+</form>
+
+<h3><a href="~/Cart/Buy/">Köp!</a></h3>
 
 
