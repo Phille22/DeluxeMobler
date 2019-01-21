@@ -35,11 +35,11 @@
     }
     <h2>Totalt: @price Kr</h2>
 }
-<form method="post">
+<form method="post" action="~/Cart/Buy/"/>
     Namn: <input type="text" name="Name" />
     Kortnummer <input type="number" name="Cardnumber" />
-</form>
+    <button type="submit" onclick="alert('Köpet är genomfört!')">KÖP!!! </button>
+<form/>
 
-<h3><a href="~/Cart/Buy/">Köp!</a></h3>
 
 

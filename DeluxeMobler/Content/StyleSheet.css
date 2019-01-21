@@ -83,5 +83,17 @@ a {
     font-size: 30px;
 }
 
-form{
-    text-align:center;
+form {
+    text-align: center;
+}
+
+.objekt {
+    display: grid;
+    grid-template-columns:  400px 400px;
+    padding: 10px;
+}
+.objitem {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}

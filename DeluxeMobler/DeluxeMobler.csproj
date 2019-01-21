@@ -91,8 +91,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Adjustable_Bed.jpg" />
+    <Content Include="Content\Images\Candlestand_LACMA_M.2006.51.13_%281_of_2%29.jpg" />
     <Content Include="Content\Images\Dining_table_for_two.jpg" />
+    <Content Include="Content\Images\San_Martino_-_Napoleons_Haus_Bett.jpg" />
     <Content Include="Content\Images\Skrapan,_Open_House_Stockholm_2016,_bild_10.jpg" />
+    <Content Include="Content\Images\Table_pentagonale-Musée_de_la_Folie_Marco_%282%29.jpg" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Images\Sofa.svg" />

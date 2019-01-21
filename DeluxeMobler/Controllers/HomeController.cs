@@ -60,12 +60,14 @@ namespace DeluxeMobler.Controllers
         }
         public ActionResult Table()
         {
+            furniturelist.Sort((x, y) => string.Compare(y.NumberOfViews.ToString(), x.NumberOfViews.ToString()));
             userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
             ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 0);
             return View(VM);
         }
         public ActionResult Bed()
         {
+            furniturelist.Sort((x, y) => string.Compare(y.NumberOfViews.ToString(), x.NumberOfViews.ToString()));
             userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
             ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 0);
             return View(VM);
