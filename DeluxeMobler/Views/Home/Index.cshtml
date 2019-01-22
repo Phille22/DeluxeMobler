@@ -1,4 +1,5 @@
-﻿
+﻿@* Hit kommaer man efter att man har loggat in. Här visas alla möbler, sorterat efter antal visningar. *@
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,7 +19,7 @@
             price = price + cartitem.price;
             nr++;
         }
-        <a href="~/Cart/ShowCart/">Visa varukorgen(@nr)</a>
+        <a href="~/Cart/ShowCart/">Visa varukorgen(@nr)</a>  @*Länken till varukorgen visar hur många produkter som finns i den*@
     }
     <h2>Deluxe Möbler!</h2>
     <ul>
@@ -37,22 +38,13 @@
     <h3>Populära produkter</h3>
 </div>
 <div class="objekt">
+    @* Här visas möblerna *@
     @foreach (var furniture in Model.FurnitureList)
     {
     <div class="objitem">
         <table>
             <tr>
                 <td>
-                    @*@if (Model.UserInfo.ViewList != null)
-                    {
-                        foreach (var view in Model.UserInfo.ViewList)
-                        {
-                            if (view.id == furniture.id)
-                            {
-                                <p>@view.nr</p>
-                            }
-                        }
-                    }*@
                     <a href="~/Home/Link/@furniture.id">
                         <div class="pic">
                             <img src="@furniture.PictureURL" width="200" height="200" />
@@ -63,9 +55,8 @@
                 </td>
             </tr>
         </table>
-
     </div>
-            }
-    </div>
+    }
+</div>
 
 

@@ -1,4 +1,5 @@
 ﻿
+@* Här loggar man in med användarnamn och lösenord *@
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,8 +7,8 @@
 
 <h2>Logga in</h2>
 <form method="post">
-    Användarnamn: <input type="text" name="name" />
-    Password: <input type="password" name="password" />
+    Användarnamn: <input type="text" name="name" /><br>
+    Lösenord: <input type="password" name="password" /><br>
     <input type="submit" value="Login" />
 </form>
 

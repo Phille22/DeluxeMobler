@@ -1,4 +1,5 @@
-﻿
+﻿@*Här är varukorgen*@
+
 @{
     ViewBag.Title = "ShowCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -31,14 +32,19 @@
     {
         price = price + cartitem.price;
         nr++;
-        <p>Vara: @nr @cartitem.name @cartitem.price Kr</p>
+        <p>Vara: @nr @cartitem.name @cartitem.price Kr</p> @*Visning av varukorgen*@
     }
     <h2>Totalt: @price Kr</h2>
 }
-<form method="post" action="~/Cart/Buy/"/>
+<form method="post" action="~/Cart/Buy/"/> @*Formuläret för att fylla i uppgifter för att sedan köpa varorna*@
     Namn: <input type="text" name="Name" />
-    Kortnummer <input type="number" name="Cardnumber" />
-    <button type="submit" onclick="alert('Köpet är genomfört!')">KÖP!!! </button>
+    <br>
+    Kortinnehavarens namn: <input type="text" />
+    <br>
+    Kortnummer: <input type="number" name="Cardnumber" size="16" /><br> 
+    CVV <input type="number" maxlength="3"/>
+    Utgångsdatum: <input type="date" /><br>
+    <button type="submit" onclick="alert('Köpet är genomfört!')">KÖP!!! </button> @*Varukorgslistan töms när man klickar på köpknappen*@
 <form/>
 
 

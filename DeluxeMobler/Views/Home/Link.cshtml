@@ -1,4 +1,6 @@
-﻿
+﻿@* Här hamnar man när man vill titta på ett enskilt objekt *@
+@* När man är här har det objektet man tittar på fått en visning. *@
+
 @{
     ViewBag.Title = "Link";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -35,7 +37,7 @@
     </ul>
     @foreach (var furniture in Model.FurnitureList)
     {
-        if (furniture.id == Model.id)
+        if (furniture.id == Model.Id)
         {
             <p>@furniture.NumberOfViews</p>
             <h2>@furniture.Name</h2>
@@ -44,13 +46,14 @@
                 <div class="imgdsc">
                     <p>Längd: @furniture.Length</p>
                     <p>Höjd: @furniture.Height</p>
-                    @if(furniture is DeluxeMobler.Models.Table)
+                    @*Här skrivs de unika egenskaperna för möbeln ut*@
+                    @if (furniture is DeluxeMobler.Models.Table)
                     {
-                    <p>Antal Ben: @furniture.NumberOfLegs;</p>
-                    <p>Kan vikas:  @furniture.CanBeFold</p>
-                    <p>Form: @furniture.Shape</p>
+                        <p>Antal Ben: @furniture.NumberOfLegs;</p>
+                        <p>Kan vikas:  @furniture.CanBeFold</p>
+                        <p>Form: @furniture.Shape</p>
                     }
-                    @if(furniture is DeluxeMobler.Models.Bed)
+                    @if (furniture is DeluxeMobler.Models.Bed)
                     {
                         <p>Mjukhet: @furniture.Softness</p>
                         <p>Dubbelsäng: @furniture.IsDouble</p>
@@ -59,7 +62,7 @@
             </div>
             <p>@furniture.Price Kr</p>
             <div class="buybutton">
-                <h3><a href="~/Cart/AddToCart/@furniture.id">Lägg i varukorg</a></h3>
+                <h3><a href="~/Cart/AddToCart/@furniture.id">Lägg i varukorg</a></h3> @*Här läggar man produkten i varukorgen, detta räknas också som en visning.*@
             </div>
         }
     }

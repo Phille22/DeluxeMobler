@@ -5,17 +5,19 @@ using System.Web;
 using Newtonsoft.Json;
 
 namespace DeluxeMobler.Models
+
+    //Klassen för användaren
 {
     public class UserInfo
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public List<Viewed> ViewList { get; set; }
-        public List<Cart> CartList { get; set; }
+        public List<Viewed> ViewList { get; set; } //Användarens unika klick på en möbel
+        public List<Cart> CartList { get; set; } //Användarens kundvagn
 
 
-        public static List<UserInfo> UserList = GetUsers();
+        public static List<UserInfo> UserList = GetUsers(); //Hämta listan med användare
 
 
         public static UserInfo GetUserInfo(string Name)
@@ -24,12 +26,12 @@ namespace DeluxeMobler.Models
             return selected;
         }
 
-        public static UserInfo GetUserInfo(int id)
+        public static UserInfo GetUserInfo(int id) //Metod för att hämta relevant information för en användare
         {
             UserInfo userinfo;
-            string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/user" + id + ".json");
+            string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/user" + id + ".json"); //Läs json-filen
 
-            if (System.IO.File.Exists(filepath))
+            if (System.IO.File.Exists(filepath)) //Om filen existerar, läs den
             {
                 var settings = new JsonSerializerSettings()
                 {
@@ -47,7 +49,7 @@ namespace DeluxeMobler.Models
 
         public static void SaveUserInfo(UserInfo user)
         {
-            string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/user" + user.Id + ".json");
+            string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/user" + user.Id + ".json"); //Spara filen med användarinfo
             var settings = new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.Objects,
@@ -57,20 +59,22 @@ namespace DeluxeMobler.Models
             System.IO.File.WriteAllText(filepath, json);
         }
 
-        public static List<UserInfo> GetUsers()
+        public static List<UserInfo> GetUsers() //Listan med användare
         {
-            List<UserInfo> userList = new List<UserInfo>();
-            userList.Add(new UserInfo { Id = 1, Name = "Phille", Password = "pwh" });
-            userList.Add(new UserInfo { Id = 2, Name = "Phille2", Password = "pwh2" });
+            List<UserInfo> userList = new List<UserInfo>
+            {
+                new UserInfo { Id = 1, Name = "Phille", Password = "pwh" },
+                new UserInfo { Id = 2, Name = "Phille2", Password = "pwh2" }
+            };
             return userList;
     
         }
-        public class Viewed
+        public class Viewed //Objekt för antal visningar för den inloggade användaren
         {
             public int nr;
             public int id;
         }
-        public class Cart
+        public class Cart //Kundvagnsobjekt
         {
             public string name;
             public int price;

@@ -9,10 +9,10 @@ namespace DeluxeMobler.Controllers
 {
     public class CartController : Controller
     {
-        public List<Furniture> furniturelist = Furniture.GetData();
+        public List<Furniture> furniturelist = Furniture.GetData(); //Hämta listan med möbler
         public UserInfo userinfo;
         // GET: Cart
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int id) //Action för att lägga till möbler i kundvagnen
         {
             foreach(Furniture furniture in furniturelist)
             {
@@ -21,30 +21,30 @@ namespace DeluxeMobler.Controllers
                     userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
                     if(userinfo.CartList == null)
                     {
-                        userinfo.CartList = new List<UserInfo.Cart>();
+                        userinfo.CartList = new List<UserInfo.Cart>(); //Skapa en ny kundvagn om det inte finns någon
 
                     }
-                    userinfo.CartList.Add(new UserInfo.Cart { price = furniture.Price, name = furniture.Name });
-                    UserInfo.SaveUserInfo(userinfo);
+                    userinfo.CartList.Add(new UserInfo.Cart { price = furniture.Price, name = furniture.Name }); //Lägg till en möbel i kundvagnen
+                    UserInfo.SaveUserInfo(userinfo); //Spara användardata
                 }
 
             }
-            ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, id);
-            return RedirectToAction ("Link", "Home", new { Id = id });
+            ViewModel VM = ViewModel.Viewmodel(furniturelist, userinfo, id);
+            return RedirectToAction ("Link", "Home", new { Id = id }); //Stanna på samma sida
         }
-        public ActionResult ShowCart()
+        public ActionResult ShowCart() //Action när man visar kundvagnen
         {
             userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
-            ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 1);
+            ViewModel VM = ViewModel.Viewmodel(furniturelist, userinfo, 1);
             return View(VM);
         }
-        public ActionResult Buy()
+        public ActionResult Buy() //Action när man "köper" möbler
         {
                 userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
-                ViewModel VM = ViewModel.viewModel(furniturelist, userinfo, 0);
-                userinfo.CartList.Clear();
-                UserInfo.SaveUserInfo(userinfo);
-                return RedirectToAction("Index", "Home");
+                ViewModel VM = ViewModel.Viewmodel(furniturelist, userinfo, 0);
+                userinfo.CartList.Clear(); //Töm listan vid fulländat köp
+                UserInfo.SaveUserInfo(userinfo); //Spara användardata
+                return RedirectToAction("Index", "Home"); //Återgå till huvudsidan
         }
     } 
 }
