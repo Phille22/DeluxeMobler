@@ -45,17 +45,7 @@
             {
                 <tr>
                     <td>
-                        @if (Model.UserInfo.ViewList != null)
-                        {
-                            foreach (var view in Model.UserInfo.ViewList)
-                            {
-                                if (view.id == furniture.id)
-                                {
-                                    <p>@view.nr</p>
-                                }
-                            }
-                        }
-                        <a href="~/Home/Link/@furniture.id">
+                        <a href="~/Home/Link/@furniture.Id">
                             <div class="pic">
                                 <img src="@furniture.PictureURL" width="200" height="200" />
                             </div>

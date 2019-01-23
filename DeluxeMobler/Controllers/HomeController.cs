@@ -25,7 +25,7 @@ namespace DeluxeMobler.Controllers
                     userinfo.ViewList = new List<UserInfo.Viewed>(); //Skapa en lista där användarens visningar per objekt hamnar
                     foreach (Furniture furniture2 in furniturelist)
                     {
-                        userinfo.ViewList.Add(new UserInfo.Viewed { id = furniture2.id, nr = 0 });
+                        userinfo.ViewList.Add(new UserInfo.Viewed { id = furniture2.Id, nr = 0 });
                     }
                 }
             }
@@ -43,7 +43,7 @@ namespace DeluxeMobler.Controllers
         {
             foreach (Furniture furniture in furniturelist)
             {
-                if(furniture.id == id)
+                if(furniture.Id == id)
                 {
                     furniture.NumberOfViews++; //Om id matchar, öka motsvarande möbels visningar med 1
                     Furniture.SaveData(furniturelist); //Spara

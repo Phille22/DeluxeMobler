@@ -16,8 +16,10 @@ namespace DeluxeMobler.Controllers
         {
             foreach(Furniture furniture in furniturelist)
             {
-                if(furniture.id == id)
+                if (furniture.Id == id)
                 {
+                    furniture.InStock--; //Minska antal varor i lager med 1
+                    Furniture.SaveData(furniturelist);
                     userinfo = UserInfo.GetUserInfo((int)Session["UserID"]);
                     if(userinfo.CartList == null)
                     {

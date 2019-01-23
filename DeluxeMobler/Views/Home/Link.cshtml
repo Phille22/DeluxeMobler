@@ -28,8 +28,8 @@
             <div class="Dropdown">
                 <a href="">Kategorier</a>
                 <div class="Dropdown-content">
-                    <a href="">Bord</a>
-                    <a href="">Sängar</a>
+                    <a href="~/Home/Table">Bord</a>
+                    <a href="~/Home/Bed">Sängar</a>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
     </ul>
     @foreach (var furniture in Model.FurnitureList)
     {
-        if (furniture.id == Model.Id)
+        if (furniture.Id == Model.Id)
         {
             <h2>@furniture.Name</h2>
             <div class="pic">
@@ -49,19 +49,34 @@
                     @if (furniture is DeluxeMobler.Models.Table)
                     {
                         <p>Antal Ben: @furniture.NumberOfLegs;</p>
-                        <p>Kan vikas:  @furniture.CanBeFold</p>
+                        if (furniture.CanBeFold == true) //Korrekt visning om möbel kan vikas
+                        {
+                            <p>Kan vikas: Ja</p>
+                        }
+                        else
+                        {
+                            <p>Kan vikas: Nej</p>
+                        }
                         <p>Form: @furniture.Shape</p>
                     }
-                    @if (furniture is DeluxeMobler.Models.Bed)
+                    @if (furniture is DeluxeMobler.Models.Bed) //Korrekt visning om möbel är dubbelsäng
                     {
                         <p>Mjukhet: @furniture.Softness</p>
-                        <p>Dubbelsäng: @furniture.IsDouble</p>
+                        if (furniture.IsDouble == true)
+                        {
+                            <p>Dubbelsäng: Ja</p>
+                        }
+                        else
+                        {
+                            <p>Dubbelsäng: Nej</p>
+                        }
                     }
                 </div>
             </div>
+            <p>I lager: @furniture.InStock</p>
             <p>@furniture.Price Kr</p>
             <div class="buybutton">
-                <h3><a href="~/Cart/AddToCart/@furniture.id">Lägg i varukorg</a></h3> @*Här läggar man produkten i varukorgen, detta räknas också som en visning.*@
+                <h3><a href="~/Cart/AddToCart/@furniture.Id">Lägg i varukorg</a></h3> @*Här läggar man produkten i varukorgen, detta räknas också som en visning.*@
             </div>
         }
     }

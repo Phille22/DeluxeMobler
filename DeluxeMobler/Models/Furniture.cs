@@ -16,7 +16,7 @@ namespace DeluxeMobler.Models
         public int NumberOfViews { get; set; }
         public int NumberOfTimesBought { get; set; }
         public string PictureURL { get; set; }
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public static string filepath = HttpContext.Current.Server.MapPath("~/App_Data/Storage/library.json");
 
