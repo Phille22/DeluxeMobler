@@ -75,9 +75,18 @@
             </div>
             <p>I lager: @furniture.InStock</p>
             <p>@furniture.Price Kr</p>
-            <div class="buybutton">
-                <h3><a href="~/Cart/AddToCart/@furniture.Id">Lägg i varukorg</a></h3> @*Här läggar man produkten i varukorgen, detta räknas också som en visning.*@
-            </div>
+            if (furniture.InStock != 0)
+            {
+                <div class="buybutton">
+                    <h3><a href="~/Cart/AddToCart/@furniture.Id">Lägg i varukorg</a></h3> @*Här läggar man produkten i varukorgen, detta räknas också som en visning.*@
+                </div>
+            }
+            else
+            {
+                <div class="buybutton">
+                    <h3>Finns ej i lagret - Går ej att köpa</h3> @*Visas om produkten inte finns i lager.*@
+                </div>
+            }
         }
     }
 </div>
